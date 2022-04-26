@@ -1,20 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '@context/AppContext';
+import iconClose from "@icons/icon_close.png";
 import '../styles/ProductInfo.scss';
 
-import iconBtAddCart from "@icons/bt_add_to_cart.svg";
 
-const ProductInfo = () => {
+const ProductInfo = ({ product, toggleProductInfo, setToggleProductInfo, added, setAdded }) => {
+    const { state, addToCart, removeFromCart } = useContext(AppContext);
+
+    const handleClick = item => {
+        added ? removeFromCart(item) : addToCart(item);
+        setAdded(!added);
+        console.log('in cart: ', state.cart.includes(item));
+    }
+
     return (
         <>
-            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike" />
             <div className="ProductInfo">
-                <p>$35,00</p>
-                <p>Bike</p>
-                <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-                <button className="primary-button add-to-cart-button">
-                    <img src={iconBtAddCart} alt="add to cart" />
-                    Add to cart
-                </button>
+                <img
+                    className='icon-close-modal'
+                    src={iconClose}
+                    alt="close"
+                    onClick={() => setToggleProductInfo(!toggleProductInfo)}
+                />
+                <div className="ProductInfo-container">
+                    <img src={product.images[0]} alt={product.title} />
+                    <div className='ProductInfo-details'>
+                        <div className='ProductInfo-details-basic'>
+                            <p>{product.price} COP</p>
+                            <p>{product.title}</p>
+                        </div>
+                        <p className='ProductInfo-details-description'>{product.description}</p>
+                    </div>
+                    <button className="primary-button add-to-cart-button" onClick={() => handleClick(product)}>
+                        {!added ? 'Agregar al carrito' : 'Remover del carrito'}
+                    </button>
+                </div>
             </div>
         </>
     );
