@@ -32,7 +32,7 @@ node_modules
 *.webp
 
 # Portable Network Graphics
-*.png
+# *.png
 
 # Animated Portable Network Graphics
 *.apng
@@ -45,7 +45,7 @@ node_modules
 *.tif
 
 # Scalable Vector Graphics
-*.svg
+# *.svg
 *.svgz
 
 # Portable Document Format
