@@ -4,7 +4,7 @@ import Menu from '@components/Menu';
 import MyOrder from '@containers/MyOrder';
 import MenuMobile from '@components/MenuMobile';
 import AppContext from '@context/AppContext';
-import logo from "@logos/logo_yard_sale.svg";
+import logo from "../assets/logos/logoCositasMini.png";
 import iconMenu from "@icons/icon_menu.svg";
 import arrowDown from "@icons/arrow_down.svg";
 import iconShoppingCart from "@icons/icon_shopping_cart.svg";
@@ -35,29 +35,29 @@ const Header = () => {
                 <img src={logo} alt="logo" className="nav-logo" />
                 <ul>
                     <li>
-                        <a href="/">All</a>
+                        <a href="/">Todos</a>
                     </li>
                     <li>
-                        <a href="/">Clothes</a>
+                        <a href="/">Emojis</a>
                     </li>
                     <li>
-                        <a href="/">Electronics</a>
+                        <a href="/">Anime</a>
                     </li>
                     <li>
-                        <a href="/">Furniture</a>
+                        <a href="/">Comida</a>
                     </li>
                     <li>
-                        <a href="/">Toys</a>
+                        <a href="/">Amistad</a>
                     </li>
                     <li>
-                        <a href="/">Others</a>
+                        <a href="/">Otros</a>
                     </li>
                 </ul>
             </div>
             <div className="navbar-right">
                 <ul>
                     <li className="navbar-email" >
-                        camilayokoo@gmail.com
+                        Invitado
                     </li>
                     <li>
                         <img src={arrowDown} alt="arrow_down" className="arrow-down" onClick={handleToggle} />
